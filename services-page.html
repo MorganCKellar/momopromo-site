@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | MomoPromo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B0A08;
+  --bg-rich: #110F0C;
+  --bg-card: #161412;
+  --bg-hover: #1C1A17;
+  --border: rgba(255,255,255,0.05);
+  --border-warm: rgba(196,150,95,0.15);
+  --text: #F0ECE7;
+  --text-secondary: #BDB5AD;
+  --text-muted: #8A8480;
+  --gold: #D4A85C;
+  --gold-light: #E4BE7A;
+  --gold-glow: rgba(196,150,79,0.12);
+  --gold-glow-md: rgba(196,150,79,0.18);
+  --ivory: #F8F5F0;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  line-height: 1.85;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Film grain */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.02;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3.serif { font-family: 'Playfair Display', serif; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 24px 60px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(11,10,8,0.75);
+  backdrop-filter: blur(30px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.nav-logo img { height: 26px;  }
+.nav-wordmark {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.nav-wordmark span { color: var(--gold); }
+.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta-btn {
+  background: transparent !important;
+  color: var(--gold) !important;
+  border: 1px solid var(--gold);
+  padding: 10px 28px;
+  border-radius: 0;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px !important;
+  transition: all 0.3s;
+}
+.nav-cta-btn:hover { background: var(--gold) !important; color: var(--bg) !important; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 160px 60px 120px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-ambient {
+  position: absolute; top: -25%; right: -15%;
+  width: 900px; height: 900px; border-radius: 50%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-ambient-2 {
+  position: absolute; bottom: -30%; left: -10%;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,150,79,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-rule {
+  position: absolute; left: 60px; top: 80px; bottom: 80px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-glow-md) 20%, var(--gold-glow-md) 80%, transparent);
+}
+
+.hero-inner {
+  max-width: 1280px; width: 100%; margin: 0 auto;
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: center;
+  position: relative; z-index: 2;
+}
+
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  display: flex; align-items: center; gap: 16px;
+}
+.hero-kicker::before {
+  content: ''; display: block; width: 40px; height: 1px; background: var(--gold);
+}
+
+.hero h1 {
+  font-weight: 700;
+  font-size: clamp(3.2rem, 6vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -2px;
+  color: var(--ivory);
+  margin-bottom: 32px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.hero-body {
+  font-family: '''Lora''', serif;
+  font-family: 'Lora', serif;
+  font-size: 1.12rem; color: var(--text-secondary);
+  max-width: 480px; line-height: 2; margin-bottom: 44px; font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.btn-gold {
+  background: var(--gold); color: var(--bg);
+  padding: 16px 40px; border: none; border-radius: 0;
+  font-family: 'Lora', serif;
+  font-weight: 600; font-size: 12px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; text-decoration: none; transition: all 0.3s;
+}
+.btn-gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 48px rgba(196,150,79,0.2);
+}
+
+.btn-outline {
+  background: transparent; color: var(--text);
+  padding: 16px 40px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 0;
+  font-family: 'Lora', serif;
+  font-weight: 500; font-size: 12px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; text-decoration: none; transition: all 0.3s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Hero right: cat logo as cinematic element */
+.hero-visual {
+  display: flex; flex-direction: column; align-items: center; gap: 48px;
+}
+.hero-cat-frame {
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg) 100%);
+  border: 1px solid var(--border-warm);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  box-shadow: 0 0 120px rgba(196,150,79,0.06), inset 0 0 60px rgba(0,0,0,0.3);
+}
+.hero-cat-frame::before {
+  content: ''; position: absolute; inset: -1px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0%, var(--gold-glow-md) 25%, transparent 50%, var(--gold-glow) 75%, transparent 100%);
+  z-index: -1;
+  animation: catGlow 8s linear infinite;
+}
+@keyframes catGlow { to { transform: rotate(360deg); } }
+.hero-cat-frame img { width: 185px;  }
+
+.hero-metrics {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
+  width: 100%;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.metric {
+  background: var(--bg-card); padding: 24px 20px; text-align: center;
+  transition: background 0.3s;
+}
+.metric:hover { background: var(--bg-hover); }
+.metric-val {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 1.6rem;
+  color: var(--gold); line-height: 1.2;
+}
+.metric-lbl {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-muted); margin-top: 6px;
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  max-width: 1280px; margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+
+/* ===== THE PROBLEM ===== */
+.problem { padding: 120px 60px; text-align: center; }
+.problem-inner { max-width: 740px; margin: 0 auto; }
+.overline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px; display: block;
+}
+.problem h2 {
+  font-weight: 700; font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -1px; color: var(--ivory);
+  margin-bottom: 24px; line-height: 1.15;
+}
+.problem p {
+  font-family: 'Lora', serif;
+  color: var(--text-secondary); font-size: 1.05rem; line-height: 2;
+  max-width: 580px; margin: 0 auto;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SERVICES ===== */
+.services {
+  padding: 120px 60px;
+  background: var(--bg-rich);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.services-top {
+  max-width: 1280px; margin: 0 auto 72px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  flex-wrap: wrap; gap: 24px;
+}
+.services-top h2 {
+  font-weight: 700; font-size: clamp(2rem, 3.5vw, 2.6rem);
+  letter-spacing: -0.5px; color: var(--ivory);
+}
+
+.svc-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border);
+}
+.svc {
+  background: var(--bg-card); padding: 44px 36px;
+  transition: all 0.4s; position: relative;
+}
+.svc:hover { background: var(--bg-hover); }
+.svc::before {
+  content: ''; position: absolute; top: 0; left: 36px; right: 36px;
+  height: 0; background: var(--gold); transition: height 0.3s;
+}
+.svc:hover::before { height: 2px; }
+
+.svc-idx {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400; font-style: italic;
+  font-size: 2rem; color: var(--gold); opacity: 0.3;
+  margin-bottom: 16px; display: block;
+}
+.svc h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600; font-size: 1.2rem;
+  color: var(--ivory); margin-bottom: 12px;
+  letter-spacing: -0.2px;
+}
+.svc p { font-family: 'Lora', serif; color: var(--text-secondary); font-size: 0.94rem; line-height: 1.9; margin-bottom: 20px; letter-spacing: 0.15px; }
+.svc-cost {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: var(--gold); letter-spacing: 0.5px;
+}
+
+/* ===== HOW ===== */
+.how { padding: 120px 60px; }
+.how-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: start;
+}
+.how-left {}
+.how h2 {
+  font-weight: 700; font-size: clamp(2rem, 3.5vw, 2.6rem);
+  letter-spacing: -0.5px; color: var(--ivory); margin-bottom: 20px;
+}
+.how-intro { font-family: 'Lora', serif; color: var(--text-secondary); font-size: 1rem; line-height: 2; letter-spacing: 0.2px; }
+
+.step {
+  display: flex; gap: 28px; margin-bottom: 44px; align-items: flex-start;
+}
+.step-n {
+  min-width: 52px; height: 52px;
+  border: 1px solid var(--border-warm);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600; font-style: italic;
+  font-size: 1.3rem; color: var(--gold);
+  transition: all 0.3s;
+}
+.step:hover .step-n {
+  background: var(--gold-glow);
+  border-color: var(--gold);
+}
+.step-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600; font-size: 1.05rem;
+  color: var(--ivory); margin-bottom: 6px;
+}
+.step-body p { font-family: 'Lora', serif; color: var(--text-secondary); font-size: 0.94rem; line-height: 1.9; letter-spacing: 0.15px; }
+
+/* ===== QUOTE ===== */
+.quote {
+  padding: 120px 60px;
+  background: var(--bg-rich);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.quote-inner { max-width: 700px; margin: 0 auto; }
+.quote-open {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem; line-height: 0.4;
+  color: var(--gold); opacity: 0.25;
+  margin-bottom: 32px; display: block;
+}
+.quote-inner blockquote {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400; font-style: italic;
+  font-size: 1.65rem; line-height: 1.55;
+  color: var(--text); margin-bottom: 28px;
+}
+.quote-inner blockquote .hl { color: var(--gold); font-weight: 600; }
+.quote-who {
+  font-family: 'Lora', serif;
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.quote-who img { height: 18px; opacity: 0.5; }
+
+/* ===== CTA ===== */
+.cta {
+  padding: 140px 60px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cta h2 {
+  font-weight: 700; font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  letter-spacing: -1px; color: var(--ivory);
+  margin-bottom: 20px; position: relative; z-index: 2;
+}
+.cta p {
+  font-family: 'Lora', serif;
+  color: var(--text-secondary); font-size: 1.05rem;
+  line-height: 2;
+  margin-bottom: 40px; max-width: 460px;
+  margin-left: auto; margin-right: auto;
+  position: relative; z-index: 2;
+  letter-spacing: 0.2px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 44px 60px;
+  border-top: 1px solid var(--border);
+}
+.footer-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-left { display: flex; align-items: center; gap: 12px; }
+.footer-left img { height: 16px; opacity: 0.35; }
+.footer-copy { font-family: 'Montserrat', sans-serif; font-size: 11px; color: var(--text-muted); letter-spacing: 0.5px; }
+.footer-links { display: flex; gap: 32px; list-style: none; }
+.footer-links a {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-muted); text-decoration: none;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+/* ===== FLOATING CAT ===== */
+.cat-btn {
+  position: fixed; bottom: 32px; right: 32px;
+  width: 56px; height: 56px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 999;
+  box-shadow: 0 8px 32px rgba(196,150,79,0.25);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.cat-btn img { height: 30px; opacity: 0.9; }
+.cat-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 16px 48px rgba(196,150,79,0.35);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  nav { padding: 18px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 120px 24px 80px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+  .hero-visual { order: -1; }
+  .hero-cat-frame { width: 180px; height: 180px; }
+  .hero-cat-frame img { width: 100px; }
+  .hero-kicker { justify-content: center; }
+  .hero-body {
+  font-family: '''Lora''', serif; margin-left: auto; margin-right: auto; }
+  .hero-buttons { justify-content: center; }
+  .hero-rule { display: none; }
+  .problem, .services, .how, .quote, .cta { padding: 72px 24px; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; gap: 48px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+  .page-hero { padding: 180px 60px 100px; text-align: center; position: relative; overflow: hidden; }
+  .page-hero .ambient { position: absolute; top: -20%; right: -10%; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, var(--gold-glow) 0%, transparent 65%); pointer-events: none; }
+  .page-hero h1 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2.6rem, 5vw, 4rem); letter-spacing: -1.5px; color: var(--ivory); margin-bottom: 20px; line-height: 1.1; }
+  .page-hero h1 em { font-style: italic; color: var(--gold); font-weight: 500; }
+  .page-hero p { font-family: 'Lora', serif; color: var(--text-secondary); font-size: 1.12rem; line-height: 2; max-width: 540px; margin: 0 auto; }
+
+  .core { padding: 100px 60px; }
+  .core-block { max-width: 1100px; margin: 0 auto 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .core-block.flip { direction: rtl; }
+  .core-block.flip > * { direction: ltr; }
+  .core-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block; }
+  .core-block h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.8rem; color: var(--ivory); margin-bottom: 16px; letter-spacing: -0.5px; }
+  .core-block p { font-family: 'Lora', serif; color: var(--text-secondary); font-size: 1.02rem; line-height: 2; margin-bottom: 14px; }
+  .core-features { list-style: none; margin-top: 20px; }
+  .core-features li { padding: 7px 0; font-family: 'Lora', serif; color: var(--text); font-size: 0.9rem; display: flex; gap: 12px; align-items: flex-start; }
+  .core-features li::before { content: '\2192'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .price-badge { display: inline-block; background: var(--gold-glow-md); border: 1px solid var(--border-warm); color: var(--gold); font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 10px 20px; margin-top: 20px; }
+
+  .core-visual { background: var(--bg-card); border: 1px solid var(--border); padding: 40px; }
+  .vis-price { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 3rem; color: var(--gold); line-height: 1.1; }
+  .vis-per { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .vis-divider { height: 1px; background: var(--border); margin: 24px 0; }
+  .vis-bonus-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: block; }
+  .vis-bonus-val { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; color: var(--ivory); }
+  .vis-note { font-family: 'Lora', serif; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.8; margin-top: 8px; }
+
+  .addons { padding: 100px 60px; background: var(--bg-rich); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .addons-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .addon { background: var(--bg-card); padding: 36px; transition: background 0.3s; display: flex; flex-direction: column; }
+  .addon:hover { background: var(--bg-hover); }
+  .addon h3 { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.1rem; color: var(--ivory); margin-bottom: 10px; }
+  .addon p { font-family: 'Lora', serif; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.9; flex: 1; }
+  .addon-price { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); }
+
+  .pricing-table { padding: 100px 60px; }
+  .ptable { max-width: 900px; margin: 0 auto; border-collapse: collapse; width: 100%; }
+  .ptable th, .ptable td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+  .ptable th { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); background: var(--bg-card); }
+  .ptable td { font-family: 'Lora', serif; font-size: 0.94rem; }
+  .ptable td:first-child { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--ivory); }
+  .ptable td:nth-child(2) { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); }
+  .ptable td:last-child { color: var(--text-secondary); }
+  .ptable tr:hover td { background: rgba(196,150,79,0.03); }
+
+  @media (max-width: 900px) {
+    .page-hero { padding: 130px 24px 60px; }
+    .core, .addons, .pricing-table { padding: 64px 24px; }
+    .core-block, .core-block.flip { grid-template-columns: 1fr; direction: ltr; }
+    .addons-grid { grid-template-columns: 1fr; }
+    .ptable th, .ptable td { padding: 10px 12px; font-size: 0.8rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="data:image/png;base64,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" alt="MomoPromo">
+    <span class="nav-wordmark">Momo<span>Promo</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about-page.html">About</a></li>
+    <li><a href="services-page.html" style="color:var(--gold);">Services</a></li>
+    <li><a href="faq-page.html">FAQ</a></li>
+    <li><a href="contact-page.html" class="nav-cta-btn">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="ambient"></div>
+  <span class="overline">Services &amp; Pricing</span>
+  <h1>Everything your business needs.<br><em>Nothing it doesn't.</em></h1>
+  <p>Flexible services built for real estate professionals who want to grow without hiring a full team. Pick what you need, skip what you don't.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="core">
+  <div class="core-block">
+    <div>
+      <span class="core-label">Core Service 01</span>
+      <h2>Pipeline Deep Dive</h2>
+      <p>Before I make a single call, I learn your system inside and out. This one-time setup audit organizes your entire contact database so every lead has a clear status, score, and strategy.</p>
+      <ul class="core-features">
+        <li>Comprehensive contact database audit and cleanup</li>
+        <li>Lead categorization: hot, warm, cold, dead</li>
+        <li>Priority scoring for follow-up cadence</li>
+        <li>Pipeline board setup in your preferred platform</li>
+        <li>DNC compliance filtering and mail-only list separation</li>
+        <li>Custom status labels and automation templates</li>
+      </ul>
+      <div class="price-badge">$500 per 1,000 contacts (prorated for smaller lists)</div>
+    </div>
+    <div class="core-visual">
+      <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--ivory);margin-bottom:14px;">What You Get</div>
+      <p style="font-family:'Lora',serif;color:var(--text-secondary);font-size:0.88rem;line-height:1.85;">A contact database that finally makes sense. Every lead scored, sorted, and ready for outreach. No more guessing who to call first.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;">
+        <span style="background:var(--gold-glow);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:10px;padding:6px 14px;">SCORED</span>
+        <span style="background:var(--gold-glow);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:10px;padding:6px 14px;">SORTED</span>
+        <span style="background:var(--gold-glow);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:10px;padding:6px 14px;">STAGED</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="core-block flip">
+    <div>
+      <span class="core-label">Core Service 02</span>
+      <h2>Follow-Up &amp; Accountability</h2>
+      <p>This is the heartbeat of MomoPromo. I become your dedicated pipeline manager, making calls, warming leads, and keeping you accountable week after week.</p>
+      <ul class="core-features">
+        <li>50+ outbound calls per week across your full pipeline</li>
+        <li>4&times;3 contact cadence: calls, texts, emails, drip</li>
+        <li>Warm handoffs with full context briefing</li>
+        <li>Weekly accountability buddy check-in</li>
+        <li>Progress reporting: calls made, leads advanced, pipeline health</li>
+        <li>TCPA-compliant outreach on every contact</li>
+        <li>Buyer, seller, past client, and referral nurturing</li>
+      </ul>
+      <div class="price-badge">$125/week flat + 10% of your net income on closings I source</div>
+    </div>
+    <div class="core-visual">
+      <div class="vis-price">$125</div>
+      <div class="vis-per">per week, flat rate</div>
+      <div class="vis-divider"></div>
+      <span class="vis-bonus-label">Performance Bonus</span>
+      <div class="vis-bonus-val">10% of Net Income</div>
+      <p class="vis-note">On any closing from leads I warm up and hand off. My incentive is your success. When you win, I win. That's how the hunt works.</p>
+      <div class="vis-divider"></div>
+      <p class="vis-note">Net income = GCI minus brokerage split minus transaction costs. Transparent, documented, and fair.</p>
+    </div>
+  </div>
+
+  <div class="core-block">
+    <div>
+      <span class="core-label">Core Service 03</span>
+      <h2>Transaction Coordination</h2>
+      <p>Add me to your deals as a TC and I'll keep everything moving from contract to close. Timelines, documents, communications, and compliance checks, all handled.</p>
+      <ul class="core-features">
+        <li>Contract-to-close management</li>
+        <li>Document tracking and deadline management</li>
+        <li>Vendor and client communication coordination</li>
+        <li>Compliance and paperwork review</li>
+        <li>Closing preparation and handoff</li>
+      </ul>
+      <div class="price-badge">&Agrave; la carte: request a custom quote</div>
+    </div>
+    <div class="core-visual">
+      <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--ivory);margin-bottom:14px;">Add It When You Need It</div>
+      <p style="font-family:'Lora',serif;color:var(--text-secondary);font-size:0.88rem;line-height:1.85;">Transaction coordination is available &agrave; la carte. Bolt it on to any package or use it standalone. Perfect for agents who need help on specific deals without committing to full-time TC support.</p>
+    </div>
+  </div>
+</section>
+
+<section class="addons">
+  <div style="max-width:1100px;margin:0 auto 64px;">
+    <span class="overline">Add-On Services</span>
+    <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(2rem,3.5vw,2.6rem);color:var(--ivory);letter-spacing:-0.5px;">Build your own stack.</h2>
+  </div>
+  <div class="addons-grid">
+    <div class="addon"><h3>Flyer Design</h3><p>Print-ready and social-optimized flyers for listings, open houses, just-sold announcements, team events, and brand campaigns. Quick turnaround, designed to stand out.</p><div class="addon-price">$25 per flyer, or $75/week unlimited</div></div>
+    <div class="addon"><h3>Facebook Ad Management</h3><p>I build and manage lead gen campaigns on Facebook and Instagram. You cover ad spend. I create the strategy, the creative, and handle the optimization.</p><div class="addon-price">$62.50/week + 30% of generated leads</div></div>
+    <div class="addon"><h3>Event Support</h3><p>Backend operations for in-person events. Planning, logistics, vendor coordination, setup, and day-of execution. I handle the chaos so your events run smooth.</p><div class="addon-price">Custom quote per event</div></div>
+    <div class="addon"><h3>Email Campaigns</h3><p>Drip campaigns, market updates, newsletter content, and re-engagement sequences. Designed to keep your brand top-of-mind without you lifting a finger.</p><div class="addon-price">Included with Follow-Up Package, or standalone quote</div></div>
+  </div>
+</section>
+
+<section class="pricing-table">
+  <div style="text-align:center;margin-bottom:48px;">
+    <span class="overline">At a Glance</span>
+    <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.8rem,3vw,2.2rem);color:var(--ivory);letter-spacing:-0.5px;">Pricing overview</h2>
+  </div>
+  <table class="ptable">
+    <thead><tr><th>Service</th><th>Price</th><th>Details</th></tr></thead>
+    <tbody>
+      <tr><td>Pipeline Deep Dive</td><td>$500 / 1K contacts</td><td>One-time audit and setup, prorated for smaller lists</td></tr>
+      <tr><td>Follow-Up &amp; Accountability</td><td>$125/week</td><td>50+ calls/week, weekly check-ins + 10% net on closings</td></tr>
+      <tr><td>Transaction Coordination</td><td>Custom quote</td><td>&Agrave; la carte, per-deal from contract to close</td></tr>
+      <tr><td>Flyer Design</td><td>$25/flyer</td><td>Or $75/week for unlimited designs</td></tr>
+      <tr><td>Facebook Ads</td><td>$62.50/week</td><td>You cover ad spend + 30% of leads to MomoPromo</td></tr>
+      <tr><td>Event Support</td><td>Custom quote</td><td>Backend ops + day-of support</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section style="padding:100px 60px;text-align:center;">
+  <div style="max-width:680px;margin:0 auto;">
+    <span class="overline">New to the Business?</span>
+    <h2 style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--ivory);letter-spacing:-0.5px;margin-bottom:20px;">Just getting started? Let's talk.</h2>
+    <p style="font-family:'Lora',serif;color:var(--text-secondary);font-size:1rem;line-height:2;margin-bottom:32px;">If the pricing above doesn't line up with your current volume, that's okay. I'd rather help you close your next deal than watch you struggle without support. Book a discovery call and we'll build a custom plan together. There are always options once we get you across the finish line on that next closing.</p>
+    <a href="contact-page.html" class="btn-gold" style="position:relative;z-index:2;">Book a Discovery Call</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="cta">
+  <div class="cta-glow"></div>
+  <h2>Let's build your pipeline plan.</h2>
+  <p>Every agent's business is different. Let's figure out exactly what you need. No upsells, no pressure.</p>
+  <a href="contact-page.html" class="btn-gold" style="position:relative;z-index:2;">Book a Free Consult</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <img src="data:image/png;base64,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" alt="">
+      <span class="footer-copy">&copy; 2026 MomoPromo LLC &middot; Phoenix, AZ</span>
+    </div>
+    <ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about-page.html">About</a></li><li><a href="faq-page.html">FAQ</a></li><li><a href="contact-page.html">Contact</a></li></ul>
+  </div>
+</footer>
+<a href="contact-page.html" class="cat-btn" title="Let's talk."><img src="data:image/png;base64,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" alt="MomoPromo"></a>
+</body></html>
