@@ -545,24 +545,76 @@ footer {
   </div>
 
   <div class="form-wrap">
-    <h2 class="form-title">Send me a message</h2>
-    <p class="form-sub">Fill this out and I'll be in touch soon. Or skip the form and email me directly, whatever works for you.</p>
-    <div class="form-row">
-      <div class="form-group"><label>First Name</label><input type="text" placeholder="Morgan"></div>
-      <div class="form-group"><label>Last Name</label><input type="text" placeholder="Kellar"></div>
-    </div>
-    <div class="form-group"><label>Email</label><input type="email" placeholder="you@example.com"></div>
-    <div class="form-group"><label>Phone (optional)</label><input type="tel" placeholder="(555) 123-4567"></div>
-    <div class="form-group"><label>Your Brokerage</label><input type="text" placeholder="e.g. Keller Williams, eXp, Compass..."></div>
-    <div class="form-group"><label>What are you interested in?</label>
-      <select><option value="">Select a service...</option><option>Pipeline Deep Dive</option><option>Follow-Up &amp; Accountability</option><option>Transaction Coordination</option><option>Flyer Design</option><option>Facebook Ad Management</option><option>Event Support</option><option>Multiple Services</option><option>Something Else</option></select>
-    </div>
-    <div class="form-group"><label>How big is your contact list?</label>
-      <select><option value="">Roughly how many contacts?</option><option>Under 500</option><option>500 to 1,000</option><option>1,000 to 5,000</option><option>5,000+</option><option>Not sure / it's a mess</option></select>
-    </div>
-    <div class="form-group"><label>Tell me more (optional)</label><textarea placeholder="What's going on with your follow-up? What are your goals? Any details help me understand how I can help..."></textarea></div>
-    <button class="btn-submit">Send Message</button>
-    <p class="form-note">No spam, no auto-sequences. Just me, reading this, and getting back to you.</p>
+<h2 class="form-title">Send me a message</h2>                                                                             
+          <p class="form-sub">Fill this out and I'll be in touch soon. Or skip the form and email me directly, whatever works for   
+       you.</p>                                                                                                                     
+          <form id="contact-form" action="https://formspree.io/f/xeewyzlw" method="POST">                                           
+            <!-- Spam protection (hidden — real users won't see/fill this) -->                                                      
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">                                
+            <div class="form-row">                                                                                                  
+              <div class="form-group">                                                                                              
+                <label>First Name</label>                                                                                           
+                <input type="text" name="first_name" placeholder="Morgan" required>                                                 
+              </div>                                                                                                                
+              <div class="form-group">                                                                                              
+                <label>Last Name</label>                                                                                            
+                <input type="text" name="last_name" placeholder="Kellar" required>                                                  
+              </div>                                                                                                                
+            </div>                                                                                                                  
+            <div class="form-group">                                                                                                
+              <label>Email</label>                                                                                                  
+              <input type="email" name="email" placeholder="you@example.com" required>                                              
+            </div>                                                                                                                  
+            <div class="form-group">                                                                                                
+              <label>Phone (optional)</label>                                                                                       
+              <input type="tel" name="phone" placeholder="(555) 123-4567">                                                          
+            </div>                                                                                                                  
+            <div class="form-group">                                                                                                
+              <label>Your Brokerage</label>                                                                                         
+              <input type="text" name="brokerage" placeholder="e.g. Keller Williams, eXp, Compass...">                              
+            </div>                                                                                                                  
+            <div class="form-group">                                                                                               
+              <label>What are you interested in?</label>
+              <select name="service" required>                                                                                     
+                <option value="">Select a service...</option>
+                <option>Pipeline Deep Dive</option>
+                <option>Follow-Up &amp; Accountability</option>
+                <option>Transaction Coordination</option>
+                <option>Flyer Design</option>
+                <option>Facebook Ad Management</option>
+                <option>Event Support</option>
+                <option>Multiple Services</option>                                                                                  
+                <option>Something Else</option>                                                                                     
+              </select>                                                                                                             
+            </div>                                                                                                                  
+            <div class="form-group">                                                                                                
+              <label>How big is your contact list?</label>                                                                          
+              <select name="list_size">                                                                                             
+                <option value="">Roughly how many contacts?</option>                                                                
+                <option>Under 500</option>                                                                                          
+                <option>500 to 1,000</option>                                                                                       
+                <option>1,000 to 5,000</option>                                                                                     
+                <option>5,000+</option>                                                                                             
+                <option>Not sure / it's a mess</option>                                                                             
+              </select>                                                                                                             
+            </div>                                                                                                                  
+            <div class="form-group">                                                                                                
+              <label>Tell me more (optional)</label>                                                                                
+              <textarea name="message" placeholder="What's going on with your follow-up? What are your goals? Any details help me   
+       understand how I can help..."></textarea>                                                                                    
+            </div>                                                                                                                  
+            <button type="submit" class="btn-submit">Send Message</button>                                                          
+            <p class="form-note">No spam, no auto-sequences. Just me, reading this, and getting back to you.</p>                    
+          </form>                                                                                                                   
+          <!-- Shown after a successful submission -->                                                                              
+          <div id="form-success" style="display:none; text-align:center; padding: 20px 0;">                                         
+            <div style="font-family: 'Playfair Display', serif; font-size: 2.6rem; color: var(--gold); margin-bottom: 14px;         
+      line-height: 1;">✓</div>                                                                                                      
+            <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--ivory); margin-bottom: 12px;          
+      font-size: 1.4rem;">Message Received</h2>                                                                                     
+            <p style="color: var(--text-secondary); font-family: 'Lora', serif; line-height: 1.7;">Thanks for reaching out. I'll    
+      be in touch within 24 hours.</p>                                                                                              
+          </div> 
   </div>
 </section>
 
@@ -576,4 +628,39 @@ footer {
   </div>
 </footer>
 <a href="contact-page.html" class="cat-btn" title="Let's talk."><img src="data:image/png;base64,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" alt="MomoPromo"></a>
-</body></html>
+<script>
+        // Inline form submit -> Formspree, shows success message in-place
+        (function() {
+          var form = document.getElementById('contact-form');
+          if (!form) return;
+          form.addEventListener('submit', function(e) {                                                                             
+            e.preventDefault();                                                                                                     
+            var btn = form.querySelector('.btn-submit');                                                                            
+            var originalText = btn.textContent;                                                                                     
+            btn.textContent = 'SENDING...';                                                                                         
+            btn.disabled = true;                                                                                                    
+            var data = new FormData(form);                                                                                          
+            fetch(form.action, {                                                                                                    
+              method: 'POST',                                                                                                       
+              body: data,                                                                                                           
+              headers: { 'Accept': 'application/json' }                                                                             
+            }).then(function(r) {                                                                                                   
+              if (r.ok) {                                                                                                           
+                form.style.display = 'none';                                                                                        
+                var ok = document.getElementById('form-success');                                                                   
+                if (ok) ok.style.display = 'block';                                                                                 
+              } else {                                                                                                              
+                return r.json().then(function(d) {                                                                                  
+                  alert('Sorry — something went wrong. Please email me directly, or try again.');                                   
+                  btn.textContent = originalText;                                                                                   
+                  btn.disabled = false;                                                                                             
+                });                                                                                                                 
+              }                                                                                                                     
+            }).catch(function() {                                                                                                   
+              alert('Network error. Please email me directly.');                                                                    
+              btn.textContent = originalText;                                                                                       
+              btn.disabled = false;                                                                                                 
+            });                                                                                                                     
+          });                                                                                                                       
+        })();                                                                                                                       
+      </script></body></html>
