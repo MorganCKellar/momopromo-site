@@ -521,12 +521,15 @@ footer {
     <li><a href="contact-page.html" class="nav-cta-btn">Let's Talk</a></li>
   </ul>
 </nav>
+<div style="background:#161412;border-bottom:1px solid rgba(255,255,255,0.06);padding:10px 60px;text-align:center;">
+  <span style="font-family:'Lora',serif;font-size:13px;color:#BDB5AD;letter-spacing:0.3px;">Done-for-you pipeline management. Not software. <span style="color:#D4A85C;">A real human on the other end of every call.</span></span>
+</div>
 
 <section class="page-hero">
   <div class="ambient"></div>
   <span class="overline">Get in Touch</span>
   <h1>Let's see if we're<br><em>a good fit.</em></h1>
-  <p>I partner with a select number of agents at a time so every client gets real attention. Book a discovery call and let's talk about your business, your goals, and whether a partnership makes sense.</p>
+  <p>MomoPromo is not software. I partner with a select number of agents at a time so every client gets real, human attention. Book a discovery call and let's talk about your business, your goals, and whether working together makes sense.</p>
 </section>
 
 <div class="divider"></div>
@@ -534,8 +537,8 @@ footer {
 <section class="contact-grid">
   <div>
     <div class="info-block"><span class="info-label">Email</span><div class="info-val"><a href="mailto:momo@momopromo.ai">momo@momopromo.ai</a></div></div>
-    <div class="info-block"><span class="info-label">Phone</span><div class="info-val"><a href="tel:+14804783771">(480) 478-3771</a></div></div>
-    <div class="info-block"><span class="info-label">Website</span><div class="info-val"><a href="https://momopromo.ai" target="_blank">momopromo.ai</a></div></div>
+    <div class="info-block"><span class="info-label">Phone</span><div class="info-val"><a href="tel:+148****3771">(480) 478-3771</a></div></div>
+    <div class="info-block"><span class="info-label">Website</span><div class="info-val"><a href="https://momopromo.ai" target="_blank">MomoPromo.ai</a></div></div>
     <div class="info-block"><span class="info-label">Based In</span><div class="info-val">Phoenix, AZ (available remotely nationwide)</div></div>
     <div class="info-block"><span class="info-label">Response Time</span><div class="info-val">Usually within 24 hours. Often faster.</div></div>
 
@@ -545,48 +548,29 @@ footer {
     </div>
   </div>
 
-  <form class="form-wrap" id="contact-form" action="https://formspree.io/f/xeewyzlw" method="POST">
-    <!-- Spam protection (hidden — real users won't see/fill this) -->
-    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+  <div class="form-wrap">
     <h2 class="form-title">Send me a message</h2>
     <p class="form-sub">Fill this out and I'll be in touch soon. Or skip the form and email me directly, whatever works for you.</p>
+    <form action="https://formspree.io/f/xeewyzlw" method="POST">
     <div class="form-row">
-      <div class="form-group">
-        <label>First Name</label>
-        <input type="text" name="first_name" placeholder="Morgan" required>
-      </div>
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" name="last_name" placeholder="Kellar" required>
-      </div>
+      <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Morgan" required></div>
+      <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Kellar" required></div>
     </div>
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" name="email" placeholder="you@example.com" required>
-    </div>
-    <div class="form-group">
-      <label>Phone (optional)</label>
-      <input type="tel" name="phone" placeholder="(480) 478-3771">
-    </div>
-    <div class="form-group">
-      <label>Your Brokerage</label>
-      <input type="text" name="brokerage" placeholder="e.g. Keller Williams, eXp, Compass...">
-    </div>
-    <div class="form-group">
-      <label>What are you interested in?</label>
+    <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="you@example.com" required></div>
+    <div class="form-group"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="(480) 478-3771"></div>
+    <div class="form-group"><label>Your Brokerage</label><input type="text" name="brokerage" placeholder="e.g. Keller Williams, eXp, Compass..."></div>
+    <div class="form-group"><label>What are you interested in?</label>
       <select name="services"><option value="">Select a service...</option><option>Pipeline Deep Dive</option><option>Follow-Up &amp; Accountability</option><option>Transaction Coordination</option><option>Flyer Design</option><option>Facebook Ad Management</option><option>Event Support</option><option>Multiple Services</option><option>Something Else</option></select>
     </div>
-    <div class="form-group">
-      <label>How big is your contact list?</label>
+    <div class="form-group"><label>How big is your contact list?</label>
       <select name="list_size"><option value="">Roughly how many contacts?</option><option>Under 500</option><option>500 to 1,000</option><option>1,000 to 5,000</option><option>5,000+</option><option>Not sure / it's a mess</option></select>
     </div>
-    <div class="form-group">
-      <label>Tell me more (optional)</label>
-      <textarea name="message" placeholder="What's going on with your follow-up? What are your goals? Any details help me understand how I can help..."></textarea>
-    </div>
+    <div class="form-group"><label>Tell me more (optional)</label><textarea name="message" placeholder="What's going on with your follow-up? What are your goals? Any details help me understand how I can help..."></textarea></div>
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
     <button type="submit" class="btn-submit">Send Message</button>
     <p class="form-note">No spam, no auto-sequences. Just me, reading this, and getting back to you.</p>
   </form>
+  </div>
 </section>
 
 <footer>
