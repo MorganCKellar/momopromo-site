@@ -473,6 +473,13 @@ footer {
   .page-hero p { font-family: 'Lora', serif; color: var(--text-secondary); font-size: 1.12rem; line-height: 2; max-width: 540px; margin: 0 auto; }
 
   .contact-grid { padding: 40px 60px 120px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
+
+  .booking-section { padding: 60px 60px 80px; max-width: 900px; margin: 0 auto; text-align: center; }
+  .booking-intro { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .booking-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--ivory); margin-bottom: 14px; letter-spacing: -0.5px; }
+  .booking-sub { font-family: 'Lora', serif; color: var(--text-secondary); font-size: 1.05rem; line-height: 1.9; max-width: 540px; margin: 0 auto 36px; }
+  .booking-widget-wrap { background: var(--bg-card); border: 1px solid var(--border); padding: 24px; max-width: 800px; margin: 0 auto; min-height: 720px; }
+  #ghl-booking-widget { display: block; min-height: 680px; }
   .info-block { margin-bottom: 32px; }
   .info-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: block; }
   .info-val { font-family: 'Lora', serif; font-size: 1.02rem; color: var(--text); }
@@ -501,6 +508,8 @@ footer {
   @media (max-width: 900px) {
     .page-hero { padding: 130px 24px 60px; }
     .contact-grid { grid-template-columns: 1fr; gap: 36px; padding: 40px 24px 80px; }
+    .booking-section { padding: 40px 24px 60px; }
+    .booking-widget-wrap { padding: 16px; min-height: 680px; }
     .form-row { grid-template-columns: 1fr; }
   }
 
@@ -529,7 +538,19 @@ footer {
   <div class="ambient"></div>
   <span class="overline">Get in Touch</span>
   <h1>Let's see if we're<br><em>a good fit.</em></h1>
-  <p>MomoPromo is not software. I partner with a select number of agents at a time so every client gets real, human attention. Book a discovery call and let's talk about your business, your goals, and whether working together makes sense.</p>
+  <p>MomoPromo is not software. I partner with a select number of agents at a time so every client gets real, human attention. Pick a time that works below, or send a message, whatever feels easier.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="booking-section">
+  <div class="booking-intro">Pick a time</div>
+  <h2 class="booking-title">Schedule a Discovery Call</h2>
+  <p class="booking-sub">Free 30-60 minute consult. We'll talk about your pipeline, your goals, and whether working together makes sense. No pressure, no pitch.</p>
+  <div class="booking-widget-wrap">
+    <iframe src="https://www.momopromo.ai/widget/booking/RyPT4q3J9dEBs6JhRsHL" style="width:100%;border:none;overflow:hidden;" scrolling="no" id="ghl-booking-widget"></iframe>
+    <script src="https://www.momopromo.ai/js/form_embed.js" type="text/javascript"></script>
+  </div>
 </section>
 
 <div class="divider"></div>
