@@ -504,6 +504,7 @@ footer {
   .btn-submit { width: 100%; background: var(--gold); color: var(--bg); padding: 15px; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; margin-top: 8px; }
   .btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(196,150,79,0.2); }
   .form-note { text-align: center; margin-top: 14px; font-family: 'Lora', serif; font-size: 0.78rem; color: var(--text-muted); }
+  .form-consent { text-align: center; margin-top: 10px; margin-bottom: 4px; font-family: 'Lora', serif; font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; }
 
   @media (max-width: 900px) {
     .page-hero { padding: 130px 24px 60px; }
@@ -590,6 +591,7 @@ footer {
     <div class="form-group"><label>Tell me more (optional)</label><textarea name="message" placeholder="What's going on with your follow-up? What are your goals? Any details help me understand how I can help..."></textarea></div>
     <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
     <button type="submit" class="btn-submit" id="formSubmitBtn">Send Message</button>
+    <p class="form-consent">By submitting, you agree to receive text and email updates about your inquiry. Reply STOP to opt out of texts anytime.</p>
     <p class="form-note" id="formStatus">No spam, no auto-sequences. Just me, reading this, and getting back to you.</p>
   </form>
   </div>
@@ -635,6 +637,78 @@ footer {
       console.error('Network error:', err);
     });
   });
+})();
+</script>
+
+<!-- GHL Chatbot Widget (cat button opens it) -->
+<style>
+  /* Hide GHL's default chat bubble so only the cat button is visible */
+  iframe[src*="leadconnectorhq"], iframe[id*="chat-widget"],
+  .ghl-chat-launcher, [class*="ghl-chat-bubble"],
+  [id^="ghl-chat-"], [class^="ghl-chat-"] { display: none !important; }
+</style>
+<script>
+(function() {
+  // Momo: replace YOUR_GHL_CHATBOT_WIDGET_ID with your actual GHL chatbot widget ID
+  // Get it from: GHL > Settings > Chatbot > [your bot] > Embed Code
+  var WIDGET_ID = "YOUR_GHL_CHATBOT_WIDGET_ID";
+  var chatLoaded = false;
+
+  function openGHLChat() {
+    // Try GHL's exposed API first
+    if (window.leadconnectorhqChatWidget && window.leadconnectorhqChatWidget.open) {
+      window.leadconnectorhqChatWidget.open();
+      return;
+    }
+    if (window.GHLChatWidget && window.GHLChatWidget.open) {
+      window.GHLChatWidget.open();
+      return;
+    }
+    // Fallback: click GHL's hidden launcher element
+    var selectors = [
+      'iframe[src*="leadconnectorhq/chat"]',
+      'iframe[id*="chat-widget"]',
+      '[class*="chat-launcher"]',
+      '[id*="chat-launcher"]',
+      'button[aria-label*="chat" i]'
+    ];
+    for (var i = 0; i < selectors.length; i++) {
+      var el = document.querySelector(selectors[i]);
+      if (el) { el.click(); return; }
+    }
+  }
+
+  function loadGHLChatbot() {
+    if (chatLoaded) {
+      openGHLChat();
+      return;
+    }
+    chatLoaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    s.async = true;
+    s.setAttribute('data-widget-id', WIDGET_ID);
+    s.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/loader-resources');
+    s.onload = function() { setTimeout(openGHLChat, 400); };
+    document.body.appendChild(s);
+  }
+
+  // Wire up cat button
+  function init() {
+    var catBtn = document.querySelector('.cat-btn');
+    if (!catBtn) return;
+    catBtn.setAttribute('href', '#');
+    catBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      loadGHLChatbot();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 </script>
 </body></html>
