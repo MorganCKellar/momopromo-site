@@ -49,6 +49,26 @@ body::after {
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3.serif { font-family: 'Playfair Display', serif; }
 
+/* ===== TOP BANNER (sits under the fixed nav) ===== */
+.top-banner {
+  background: #161412;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 10px 60px;
+  text-align: center;
+}
+.top-banner-text {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: #BDB5AD;
+  letter-spacing: 0.3px;
+}
+.top-banner-accent { color: #D4A85C; }
+@media (max-width: 900px) {
+  .top-banner { padding: 9px 20px; margin-top: 62px; }
+  .top-banner-text { font-size: 11.5px; line-height: 1.4; }
+  .cat-btn { bottom: 20px; left: 20px; right: auto; }
+}
+
 /* ===== NAV ===== */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -554,8 +574,10 @@ footer {
     <li><a href="contact-page.html" class="nav-cta-btn">Let's Talk</a></li>
   </ul>
 </nav>
-<div style="background:#161412;border-bottom:1px solid rgba(255,255,255,0.06);padding:10px 60px;text-align:center;">
-  <span style="font-family:'Lora',serif;font-size:13px;color:#BDB5AD;letter-spacing:0.3px;">Done-for-you pipeline management. Not software. <span style="color:#D4A85C;">A real human on the other end of every call.</span></span>
+<div class="top-banner">
+  <span class="top-banner-text">
+    Done-for-you pipeline management. Not software. <span class="top-banner-accent">A real human on the other end of every call.</span>
+  </span>
 </div>
 
 <section class="page-hero">
