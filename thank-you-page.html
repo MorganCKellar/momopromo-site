@@ -685,9 +685,9 @@ footer {
 </style>
 <script>
 (function() {
-  // Momo: replace YOUR_GHL_CHATBOT_WIDGET_ID with your actual GHL chatbot widget ID
+  // GHL chatbot widget ID — embedded on every page so the cat button can open it
   // Get it from: GHL > Settings > Chatbot > [your bot] > Embed Code
-  var WIDGET_ID = "YOUR_GHL_CHATBOT_WIDGET_ID";
+  var WIDGET_ID = "69d83cdfc62e0c5d664d01db";
   var chatLoaded = false;
 
   function openGHLChat() {
@@ -724,7 +724,7 @@ footer {
     s.src = 'https://widgets.leadconnectorhq.com/loader.js';
     s.async = true;
     s.setAttribute('data-widget-id', WIDGET_ID);
-    s.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/loader-resources');
+    s.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
     s.onload = function() { setTimeout(openGHLChat, 400); };
     document.body.appendChild(s);
   }
