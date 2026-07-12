@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms and Conditions | MomoPromo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #0B0A08;
+--bg-rich: #110F0C;
+--bg-card: #161412;
+--bg-hover: #1C1A17;
+--border: rgba(255,255,255,0.05);
+--border-warm: rgba(196,150,95,0.15);
+--text: #F0ECE7;
+--text-secondary: #BDB5AD;
+--text-muted: #8A8480;
+--gold: #D4A85C;
+--gold-light: #E4BE7A;
+--gold-glow: rgba(196,150,79,0.12);
+--gold-glow-md: rgba(196,150,79,0.18);
+--ivory: #F8F5F0;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+background: var(--bg);
+color: var(--text);
+font-family: 'Lora', serif;
+font-weight: 400;
+line-height: 1.85;
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+/* Film grain */
+body::after {
+content: '';
+position: fixed; inset: 0;
+pointer-events: none;
+z-index: 9999;
+opacity: 0.02;
+background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+/* ===== TOP BANNER ===== */
+.top-banner {
+background: #161412;
+border-bottom: 1px solid rgba(255,255,255,0.06);
+padding: 10px 60px;
+text-align: center;
+}
+.top-banner-text {
+font-family: 'Lora', serif;
+font-size: 13px;
+color: #BDB5AD;
+letter-spacing: 0.3px;
+}
+.top-banner-accent { color: #D4A85C; }
+
+/* ===== NAV ===== */
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+padding: 24px 60px;
+display: flex; justify-content: space-between; align-items: center;
+background: rgba(11,10,8,0.75);
+backdrop-filter: blur(30px);
+border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.nav-logo img { height: 26px; }
+.nav-wordmark {
+font-family: 'Lora', serif;
+font-weight: 700;
+font-size: 1rem;
+color: var(--text);
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+.nav-wordmark span { color: var(--gold); }
+.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+.nav-links a {
+font-family: 'Montserrat', sans-serif;
+color: var(--text-secondary);
+text-decoration: none;
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta-btn {
+background: transparent !important;
+color: var(--gold) !important;
+border: 1px solid var(--gold);
+padding: 10px 28px;
+border-radius: 0;
+font-weight: 600 !important;
+letter-spacing: 1.5px !important;
+transition: all 0.3s;
+}
+.nav-cta-btn:hover { background: var(--gold) !important; color: var(--bg) !important; }
+
+.nav-item-with-tip { position: relative; }
+.nav-tip {
+position: absolute;
+top: calc(100% + 18px);
+left: 50%;
+transform: translateX(-50%) translateY(4px);
+z-index: 1100;
+width: 290px;
+background: #1a1714;
+border: 1px solid rgba(196,150,79,0.25);
+border-top: 2px solid var(--gold);
+padding: 14px 16px 13px;
+font-family: 'Lora', serif;
+font-size: 12.5px;
+line-height: 1.55;
+color: var(--text-secondary);
+text-align: left;
+letter-spacing: 0;
+text-transform: none;
+font-weight: 400;
+box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+opacity: 0;
+visibility: hidden;
+pointer-events: none;
+transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
+}
+.nav-tip strong {
+display: block;
+color: var(--gold);
+font-family: 'Montserrat', sans-serif;
+font-size: 10.5px;
+font-weight: 600;
+letter-spacing: 1.6px;
+text-transform: uppercase;
+margin-bottom: 2px;
+}
+.nav-tip .nav-tip-nmls {
+display: block;
+color: var(--text-muted);
+font-family: 'JetBrains Mono', monospace;
+font-size: 10.5px;
+letter-spacing: 0.3px;
+margin-bottom: 9px;
+}
+.nav-tip p { margin: 0; color: var(--text-secondary); }
+.nav-tip::after {
+content: '';
+position: absolute;
+bottom: 100%;
+left: 50%;
+transform: translateX(-50%);
+border: 7px solid transparent;
+border-bottom-color: #1a1714;
+margin-bottom: -1px;
+}
+.nav-tip::before {
+content: '';
+position: absolute;
+bottom: 100%;
+left: 50%;
+transform: translateX(-50%);
+border: 8px solid transparent;
+border-bottom-color: var(--gold);
+}
+.nav-item-with-tip:hover .nav-tip,
+.nav-item-with-tip:focus-within .nav-tip {
+opacity: 1;
+visibility: visible;
+transform: translateX(-50%) translateY(0);
+pointer-events: auto;
+}
+@media (hover: none) { .nav-tip { display: none; } }
+
+/* ===== PAGE HERO ===== */
+.page-hero { padding: 180px 60px 80px; text-align: center; position: relative; overflow: hidden; }
+.page-hero .ambient { position: absolute; top: -20%; left: -10%; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, var(--gold-glow) 0%, transparent 65%); pointer-events: none; }
+.overline {
+font-family: 'JetBrains Mono', monospace;
+font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+color: var(--gold); margin-bottom: 20px; display: block;
+}
+.page-hero h1 { font-weight: 700; font-size: clamp(2.6rem, 5vw, 4rem); letter-spacing: -1.5px; color: var(--ivory); margin-bottom: 20px; line-height: 1.1; }
+.page-hero h1 em { font-style: italic; color: var(--gold); font-weight: 500; }
+.page-hero p { font-family: 'Lora', serif; color: var(--text-secondary); font-size: 1.12rem; line-height: 2; max-width: 540px; margin: 0 auto; }
+
+.divider {
+max-width: 1280px; margin: 0 auto;
+height: 1px;
+background: linear-gradient(to right, transparent, var(--border), transparent);
+}
+
+/* ===== LEGAL CONTENT ===== */
+.legal-wrap { padding: 48px 60px 110px; max-width: 820px; margin: 0 auto; }
+.legal-updated {
+font-family: 'JetBrains Mono', monospace;
+font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+color: var(--text-muted); margin-bottom: 40px; display: block;
+}
+.legal-wrap h2 {
+font-weight: 600; font-size: 1.5rem; color: var(--ivory);
+letter-spacing: -0.3px;
+margin: 52px 0 16px; padding-top: 20px;
+border-top: 1px solid var(--border);
+}
+.legal-wrap h2:first-of-type { margin-top: 0; border-top: none; padding-top: 0; }
+.legal-wrap h3 {
+font-weight: 600; font-size: 1.08rem; color: var(--ivory);
+margin: 28px 0 10px;
+}
+.legal-wrap p { color: var(--text-secondary); font-size: 0.98rem; line-height: 1.95; margin-bottom: 16px; }
+.legal-wrap ul { margin: 4px 0 20px 22px; }
+.legal-wrap li { color: var(--text-secondary); font-size: 0.98rem; line-height: 1.9; margin-bottom: 8px; }
+.legal-wrap a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--border-warm); }
+.legal-wrap a:hover { color: var(--gold-light); }
+.legal-callout {
+background: var(--bg-card);
+border: 1px solid var(--border);
+border-left: 2px solid var(--gold);
+padding: 22px 26px;
+margin: 20px 0 28px;
+}
+.legal-callout p { margin-bottom: 10px; }
+.legal-callout p:last-child { margin-bottom: 0; }
+.legal-callout strong { color: var(--gold); font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; display: block; margin-bottom: 6px; }
+
+/* ===== FOOTER ===== */
+footer {
+padding: 44px 60px;
+border-top: 1px solid var(--border);
+}
+.footer-inner {
+max-width: 1280px; margin: 0 auto;
+display: flex; justify-content: space-between; align-items: center;
+flex-wrap: wrap; gap: 16px;
+}
+.footer-left { display: flex; align-items: center; gap: 12px; }
+.footer-left img { height: 16px; opacity: 0.35; }
+.footer-copy { font-family: 'Montserrat', sans-serif; font-size: 11px; color: var(--text-muted); letter-spacing: 0.5px; }
+.footer-links { display: flex; gap: 32px; list-style: none; }
+.footer-links a {
+font-family: 'Montserrat', sans-serif;
+color: var(--text-muted); text-decoration: none;
+font-size: 11px; font-weight: 500;
+letter-spacing: 1px; text-transform: uppercase;
+transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+/* ===== FLOATING CAT ===== */
+.cat-btn {
+position: fixed; bottom: 32px; right: 32px;
+width: 60px; height: 60px;
+background: var(--gold);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+cursor: pointer; z-index: 999;
+box-shadow: 0 8px 32px rgba(196,150,79,0.25);
+transition: all 0.3s;
+text-decoration: none;
+animation: catPulse 2.4s ease-out infinite;
+}
+.cat-btn img { height: 32px; opacity: 0.95; }
+.cat-btn:hover {
+transform: translateY(-4px) scale(1.05);
+box-shadow: 0 16px 48px rgba(196,150,79,0.35);
+animation: none;
+}
+.cat-btn::before {
+content: '';
+position: absolute;
+top: 2px; right: 2px;
+width: 14px; height: 14px;
+background: #4ade80;
+border: 2px solid var(--bg);
+border-radius: 50%;
+box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+animation: dotPulse 2s ease-out infinite;
+}
+@keyframes catPulse {
+0% { box-shadow: 0 8px 32px rgba(196,150,79,0.25), 0 0 0 0 rgba(196,150,79,0.5); }
+70% { box-shadow: 0 8px 32px rgba(196,150,79,0.25), 0 0 0 14px rgba(196,150,79,0); }
+100% { box-shadow: 0 8px 32px rgba(196,150,79,0.25), 0 0 0 0 rgba(196,150,79,0); }
+}
+@keyframes dotPulse {
+0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+70% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+nav { position: static; flex-wrap: wrap; justify-content: center; gap: 12px 24px; padding: 14px 20px; }
+.nav-links { width: 100%; flex-wrap: wrap; justify-content: center; gap: 10px 18px; }
+.nav-links a { font-size: 10px; letter-spacing: 1px; }
+.nav-tip { display: none; }
+.top-banner { padding: 9px 20px; margin-top: 0; }
+.top-banner-text { font-size: 11.5px; line-height: 1.4; }
+.page-hero { padding: 60px 24px 48px; }
+.legal-wrap { padding: 36px 24px 80px; }
+.footer-inner { flex-direction: column; text-align: center; padding-bottom: 100px; }
+.cat-btn { bottom: 20px; right: 20px; left: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="index.html" class="nav-logo">
+<img src="data:image/png;base64,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" alt="MomoPromo">
+<span class="nav-wordmark">Momo<span>Promo</span></span>
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about-page.html">About</a></li>
+<li><a href="services-page.html">Services</a></li>
+<li><a href="faq-page.html">FAQ</a></li>
+<li><a href="https://www.momopromo.ai/phoenix-homebuyer-webinar" target="_blank" rel="noopener">Homebuyer Workshop</a></li><li class="nav-item-with-tip"><a href="https://www.equitysmartloans.com/directory/morgan-kellar" target="_blank" rel="noopener">Get Pre-Approved <span aria-hidden="true">&#8599;</span></a><div class="nav-tip" role="tooltip"><strong>Licensed AZ MLO at Equity Smart</strong><span class="nav-tip-nmls">NMLS #1708385</span><p>I can pre-approve your clients, never without your sign-off.</p></div></li>
+<li><a href="contact-page.html" class="nav-cta-btn">Let's Talk</a></li>
+</ul>
+</nav>
+<div class="top-banner">
+<span class="top-banner-text">
+Done-for-you pipeline management. Not software. <span class="top-banner-accent">A real human on the other end of every call.</span>
+</span>
+</div>
+
+<section class="page-hero">
+<div class="ambient"></div>
+<span class="overline">Terms and Conditions</span>
+<h1>The ground rules,<br><em>in plain English.</em></h1>
+<p>What you can expect from this site, what we ask of you, and the disclosures that come with working with a licensed loan officer.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="legal-wrap">
+<span class="legal-updated">Effective Date: July 11, 2026</span>
+
+<h2>1. Agreement to These Terms</h2>
+<p>These Terms and Conditions ("Terms") govern your use of momopromo.ai and www.momopromo.ai, including our landing pages, webinar registrations, scheduling widgets, and chat tools (together, the "Site"). The Site is operated by MomoPromo LLC ("MomoPromo," "we," "us") of Phoenix, Arizona. By using the Site, you agree to these Terms. If you don't agree, please don't use the Site.</p>
+
+<h2>2. Licensing Disclosures</h2>
+<p>Morgan Kellar is a licensed Arizona Mortgage Loan Originator, NMLS #1708385, originating loans through Equity Smart Home Loans, NMLS #856170. You can verify licensing at <a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx?ID=1708385" target="_blank" rel="noopener">NMLS Consumer Access</a>. MomoPromo LLC also provides marketing and pipeline management services to real estate professionals; those services are separate from mortgage loan origination.</p>
+<p>Equal Housing Opportunity. We do business in accordance with federal fair lending laws, including the Fair Housing Act and the Equal Credit Opportunity Act.</p>
+
+<h2>3. Not a Loan Offer or Commitment to Lend</h2>
+<div class="legal-callout">
+<strong>Important</strong>
+<p>Nothing on this Site is an offer to lend, a loan approval, or a commitment to extend credit. All mortgage content, including webinar material, is educational and general in nature. Loan approval requires a completed application, credit review, and underwriting through Equity Smart Home Loans. Rates, programs, and terms change without notice and are subject to qualification. Not all applicants will qualify.</p>
+</div>
+<p>Content on this Site is not financial, legal, or tax advice. For advice about your specific situation, consult the appropriate licensed professional.</p>
+
+<h2>4. Consent to Be Contacted</h2>
+<p>When you submit a form, register for a webinar, or book a call through the Site, you consent to receive calls, text messages, and emails from MomoPromo LLC and Morgan Kellar at the contact information you provide, including through automated technology, regarding your inquiry. Consent is not a condition of purchasing any property, goods, or services. Message and data rates may apply and message frequency varies. Reply STOP to any text to opt out, reply HELP for help, or email <a href="mailto:momo.kellar@gmail.com">momo.kellar@gmail.com</a> to withdraw consent at any time. See our <a href="privacy-page.html">Privacy Policy</a> for full details on how we handle your information.</p>
+
+<h2>5. Webinars, Scheduling, and Third-Party Tools</h2>
+<p>Webinar registrations, appointment booking, and chat on this Site are powered by HighLevel Inc. (LeadConnector), our CRM platform. By using those tools you also interact with that platform, and the information you submit is processed as described in our <a href="privacy-page.html">Privacy Policy</a>. Webinar dates, content, and availability may change, and we may record webinars for replay purposes. Registering for a free webinar creates no obligation on your part and no client relationship on ours.</p>
+
+<h2>6. Marketing Services</h2>
+<p>MomoPromo's pipeline management and marketing services for real estate professionals are governed by individually signed service agreements, not by these Terms. If anything here conflicts with your signed agreement, the signed agreement wins.</p>
+
+<h2>7. Acceptable Use</h2>
+<p>You agree not to misuse the Site: no scraping, no attempting to breach security, no submitting false information, no using the Site for anything unlawful, and no infringing anyone's rights.</p>
+
+<h2>8. Intellectual Property</h2>
+<p>The Site's content, including text, graphics, logos, and the Momo cat mascot, belongs to MomoPromo LLC or its licensors. You may view and share links to the Site, but you may not copy, republish, or use our content commercially without written permission.</p>
+
+<h2>9. Third-Party Links</h2>
+<p>The Site links to third-party websites, such as NMLS Consumer Access, Equity Smart Home Loans, and scheduling pages. We don't control those sites and aren't responsible for their content or privacy practices.</p>
+
+<h2>10. Disclaimers</h2>
+<p>The Site is provided "as is" and "as available." We work hard to keep information accurate and current, but we make no warranties, express or implied, about the Site's completeness, accuracy, reliability, or availability. Market data, rates, and program details can become outdated quickly.</p>
+
+<h2>11. Limitation of Liability</h2>
+<p>To the fullest extent permitted by law, MomoPromo LLC and Morgan Kellar are not liable for indirect, incidental, consequential, or punitive damages arising from your use of the Site. Our total liability related to the Site will not exceed one hundred dollars ($100). Nothing in these Terms limits liability that cannot be limited under applicable law, and nothing here waives any rights you have under federal or state consumer protection or fair lending laws.</p>
+
+<h2>12. Indemnification</h2>
+<p>You agree to hold MomoPromo LLC harmless from claims arising out of your misuse of the Site or your violation of these Terms.</p>
+
+<h2>13. Governing Law</h2>
+<p>These Terms are governed by the laws of the State of Arizona, without regard to conflict of law rules. Any dispute related to the Site will be resolved in the state or federal courts located in Maricopa County, Arizona.</p>
+
+<h2>14. Changes to These Terms</h2>
+<p>We may update these Terms from time to time. When we do, we'll update the effective date at the top of this page. Your continued use of the Site after changes means you accept the updated Terms.</p>
+
+<h2>15. Contact</h2>
+<p>Questions about these Terms? We're happy to help.</p>
+<p>MomoPromo LLC &middot; Phoenix, AZ<br>
+Email: <a href="mailto:momo.kellar@gmail.com">momo.kellar@gmail.com</a><br>
+Morgan Kellar, NMLS #1708385 &middot; Equity Smart Home Loans, NMLS #856170</p>
+</section>
+
+<footer>
+<div class="footer-inner">
+<div class="footer-left">
+<img src="data:image/png;base64,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" alt="">
+<span class="footer-copy">&copy; 2026 MomoPromo LLC &middot; Phoenix, AZ</span>
+</div>
+<ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about-page.html">About</a></li><li><a href="services-page.html">Services</a></li><li><a href="contact-page.html">Contact</a></li><li><a href="https://www.momopromo.ai/phoenix-homebuyer-webinar" target="_blank" rel="noopener">Homebuyer Workshop</a></li><li><a href="privacy-page.html">Privacy</a></li><li><a href="terms-page.html">Terms</a></li></ul>
+</div>
+<div style="border-top:1px solid var(--border);padding:18px 24px 20px;text-align:center;font-size:11.5px;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;line-height:1.7;">
+<div style="margin-bottom:10px;color:var(--gold);">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-2px;margin-right:6px;" aria-label="Equal Housing Opportunity"><path d="M12 3 L3 12 V22 H21 V12 Z"/><line x1="8" y1="18" x2="16" y2="18"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+Equal Housing Opportunity
+</div>
+Morgan Kellar (NMLS #1708385) &middot; Licensed AZ Mortgage Loan Officer at Equity Smart (NMLS #856170)
+<br>
+<a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx?ID=1708385" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--border-warm);">Verify my license at NMLS Consumer Access &rarr;</a>
+</div>
+</footer>
+<a href="contact-page.html" class="cat-btn" title="Let's talk."><img src="data:image/png;base64,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" alt="MomoPromo"></a>
+
+<!-- GHL Chatbot Widget (cat button opens it) -->
+<style>
+iframe[src*="leadconnectorhq"], iframe[id*="chat-widget"],
+.ghl-chat-launcher, [class*="ghl-chat-bubble"],
+[id^="ghl-chat-"], [class^="ghl-chat-"] { display: none !important; }
+</style>
+<script>
+(function() {
+var WIDGET_ID = "6a374b36064e58bee8bde0f2";
+var chatLoaded = false;
+
+function openGHLChat() {
+if (window.leadconnectorhqChatWidget && window.leadconnectorhqChatWidget.open) {
+window.leadconnectorhqChatWidget.open();
+return;
+}
+if (window.GHLChatWidget && window.GHLChatWidget.open) {
+window.GHLChatWidget.open();
+return;
+}
+var selectors = [
+'iframe[src*="leadconnectorhq/chat"]',
+'iframe[id*="chat-widget"]',
+'[class*="chat-launcher"]',
+'[id*="chat-launcher"]',
+'button[aria-label*="chat" i]'
+];
+for (var i = 0; i < selectors.length; i++) {
+var el = document.querySelector(selectors[i]);
+if (el) { el.click(); return; }
+}
+}
+
+function loadGHLChatbot() {
+if (chatLoaded) {
+openGHLChat();
+return;
+}
+chatLoaded = true;
+var s = document.createElement('script');
+s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+s.async = true;
+s.setAttribute('data-widget-id', WIDGET_ID);
+s.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+s.onload = function() { setTimeout(openGHLChat, 400); };
+document.body.appendChild(s);
+}
+
+function init() {
+var catBtn = document.querySelector('.cat-btn');
+if (!catBtn) return;
+catBtn.setAttribute('href', '#');
+catBtn.addEventListener('click', function(e) {
+e.preventDefault();
+loadGHLChatbot();
+});
+}
+
+if (document.readyState === 'loading') {
+document.addEventListener('DOMContentLoaded', init);
+} else {
+init();
+}
+})();
+</script>
+</body></html>
